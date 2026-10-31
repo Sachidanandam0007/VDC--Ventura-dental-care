@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ventura Dental Care</title>
+<meta name="description" content="Ventura Dental Care: modern cosmetic, restorative and preventive dentistry. Book your appointment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* ---------- hero ---------- */
+.hero{height:320vh;position:relative;background:var(--light)}
+.hero-title{position:absolute;left:0;right:0;top:50%;text-align:center;font-size:clamp(64px,12.5vw,215px);pointer-events:none;will-change:transform,opacity}
+.hero-title span{display:block}
+.hero-title .l1{padding-left:6vw}
+.hero-title .l2{padding-right:2vw}
+.hero-media{position:absolute;inset:0;clip-path:inset(0 0 0 var(--clip,50%));background:#2a2a33}
+.hero-media .media{position:absolute;inset:0}
+.hero-media .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.05) 40%,rgba(0,0,0,.45))}
+.hero-media .hero-title{color:#fff}
+.hero-tag{position:absolute;bottom:28px;left:calc(var(--clip,50%) + var(--gut));color:#fff;font-size:clamp(20px,2vw,30px);max-width:320px;line-height:.95}
+.hero-note{position:absolute;bottom:28px;right:var(--gut);color:#fff;font-size:12px;font-weight:500;max-width:200px;text-align:right}
+.based{position:absolute;left:var(--gut);bottom:28px;font-size:12px;font-weight:500;line-height:1.25}
+.based span{display:block;font-size:10px;opacity:.5;margin-bottom:8px;font-weight:400}
+.hero-marquee{position:absolute;top:50%;left:0;white-space:nowrap;color:#fff;font-size:clamp(80px,15vw,260px);transform:translate3d(100vw,-50%,0);will-change:transform}
+
+/* ---------- mission ---------- */
+.goal{padding:120px var(--gut) 140px;position:relative}
+.goal-top{display:flex;justify-content:space-between;align-items:center;gap:40px;margin-left:auto;width:min(46%,560px)}
+.goal-top p{font-size:12px;max-width:300px}
+.avatars{display:flex}
+.avatars>*{width:58px;height:58px;border-radius:50%;margin-left:-12px;border:2px solid var(--light)}
+.avatars .more{display:grid;place-items:center;background:#dcdbdd;font:400 26px var(--serif)}
+.goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:80px;align-items:start}
+.goal-l{display:flex;align-items:center;gap:20px}
+.goal-l h2{font-size:clamp(40px,5vw,78px);white-space:nowrap}
+.portrait{width:min(20vw,260px);aspect-ratio:3/4;filter:grayscale(1)}
+.words{font-size:clamp(34px,4.6vw,72px);line-height:.98}
+.goal .pill{margin-top:56px;margin-left:calc(50% + 2vw)}
+
+/* ---------- services (sticky) ---------- */
+.svc{height:420vh;position:relative}
+.svc-stage{background:var(--dark);color:#fff}
+.svc-bg{position:absolute;left:0;top:0;bottom:0;width:58%;opacity:0;transform:scale(1.06);transition:opacity .9s var(--ease),transform 1.4s var(--ease);filter:grayscale(1)}
+.svc-bg.on{opacity:1;transform:scale(1)}
+.svc-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,22,30,.15) 0%,rgba(22,22,30,.35) 35%,var(--dark) 60%);pointer-events:none}
+.svc-list{position:absolute;left:var(--gut);bottom:40px;z-index:2}
+.svc-list ul{list-style:none;margin-top:28px;font-size:12px;font-weight:500;line-height:1.5}
+.svc-list li{opacity:.4;transition:opacity .4s;cursor:pointer}
+.svc-list li.on{opacity:1}
+.svc-titles{position:absolute;left:22%;top:50%;z-index:2;font-size:clamp(60px,7.4vw,150px)}
+.svc-titles h2{position:absolute;top:0;left:0;white-space:nowrap;opacity:0;transform:translateY(calc(-50% + 40px));transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.svc-titles h2.on{opacity:1;transform:translateY(-50%)}
+.svc-titles h2 em{display:block}
+.svc-side{position:absolute;right:var(--gut);top:90px;bottom:40px;width:min(30vw,380px);z-index:2;display:flex;flex-direction:column}
+.svc-desc{font-size:17px;line-height:1.3;color:rgba(255,255,255,.75);margin-top:44px;min-height:90px}
+.svc-sub{display:flex;gap:18px;margin-top:40px}
+.svc-thumb{width:130px;height:170px;flex:none;filter:grayscale(1)}
+.svc-sub ul{list-style:none;flex:1}
+.svc-sub li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;font-weight:500}
+.svc-side .pill{margin-top:auto;align-self:flex-end}
+.swap{transition:opacity .35s}
+.swap.out{opacity:0}
+
+/* ---------- technology ---------- */
+.tech-intro{position:relative;background:var(--light);padding-bottom:40px}
+.tech-band{height:78vh;filter:grayscale(1)}
+.tech-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(16,16,22,.75))}
+.tech-h{font-size:clamp(64px,10.5vw,190px);padding:0 var(--gut)}
+.tech-h .t1{display:block;color:#fff;margin-top:-1em;position:relative;padding-left:12vw}
+.tech-h .t2{display:block;margin-top:.08em}
+.tech{height:380vh;position:relative;background:var(--light)}
+.tech-stage{display:grid;grid-template-columns:1fr 1.1fr 1.3fr;align-items:center;padding:0 var(--gut);gap:3vw}
+.tech-count{font-size:clamp(46px,4vw,70px);display:flex;align-items:baseline;gap:8px}
+.tech-count small{font:500 11px var(--sans)}
+.tech-imgs{position:relative;aspect-ratio:5/6;max-height:72vh;width:100%}
+.tech-imgs .media{position:absolute;inset:0;opacity:0;transition:opacity .7s}
+.tech-imgs .media.on{opacity:1}
+.tech-list-wrap{height:72vh;overflow:hidden;position:relative;-webkit-mask:linear-gradient(transparent,#000 25%,#000 75%,transparent);mask:linear-gradient(transparent,#000 25%,#000 75%,transparent)}
+.tech-list{list-style:none;position:absolute;left:0;right:0;top:50%;transition:transform .7s var(--ease)}
+.tech-list li{display:flex;justify-content:space-between;align-items:flex-end;padding:22px 0;opacity:.22;transition:opacity .5s}
+.tech-list li.on{opacity:1}
+.tech-list .lbl{display:block;font-size:10px;margin-bottom:8px}
+.tech-list h3{font-size:clamp(34px,3.2vw,56px)}
+
+/* ---------- team ---------- */
+.team{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,#2b2b36,var(--dark) 60%)}
+.team-hero{position:relative;height:92vh;min-height:560px}
+.team-word{position:absolute;left:0;right:0;top:9vh;text-align:center;font-size:clamp(80px,14vw,250px);white-space:nowrap;color:#f2eef6;will-change:transform}
+.team-photo{position:absolute;left:8%;right:8%;bottom:0;top:30vh;border-radius:24px 24px 0 0;filter:grayscale(1)}
+.team-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,var(--dark))}
+.team-bios{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw;padding:40px var(--gut) 120px;position:relative}
+.team-bios h4{font-size:13px;font-weight:600}
+.team-bios .role{font-size:11px;opacity:.45;margin:2px 0 18px}
+.team-bios p{font-size:11px;line-height:1.5;opacity:.8;max-width:260px}
+.team-cta{display:grid;grid-template-columns:1fr 1fr;padding:60px var(--gut) 140px;gap:4vw}
+.team-cta .small{font-size:15px;font-weight:600;line-height:1.2}
+.team-cta .small span{opacity:.5;font-weight:500}
+.team-cta h3{font-size:clamp(34px,3.6vw,58px);margin-bottom:40px;max-width:520px}
+
+/* ---------- why ---------- */
+.why{height:200vh;position:relative}
+.why-stage{background:var(--dark);color:#fff;display:grid;place-items:center}
+.ring{position:absolute;top:50%;width:min(72vh,640px);aspect-ratio:1;border:1px solid rgba(255,255,255,.22);border-radius:50%;will-change:transform}
+.ring.r1{left:-14vw}.ring.r2{right:-14vw}
+.why-h{position:relative;width:100%;font-size:clamp(56px,8.6vw,160px);padding:0 var(--gut)}
+.why-h .row{display:flex;justify-content:space-between;align-items:center;will-change:transform}
+.why-h .row2{justify-content:center;margin-top:-.02em;padding-right:10vw}
+.why-h .mid{font:500 11px/1.2 var(--sans);text-align:center;letter-spacing:0}
+
+/* ---------- curve + stats ---------- */
+.curve{height:330vh;position:relative}
+.curve-stage{background:var(--light)}
+.curve-img{position:absolute;inset:0;filter:grayscale(1)}
+.curve-text{position:absolute;inset:0;font-size:clamp(66px,9.5vw,175px);color:var(--ink);pointer-events:none}
+.curve-text span{position:absolute;white-space:nowrap;will-change:transform}
+.curve-text .c1{top:22%;right:6vw}
+.curve-text .c2{top:38%;left:var(--gut)}
+.curve-shape{position:absolute;left:50%;top:0;width:260vw;height:260vw;border-radius:50%;background:var(--dark);transform:translate(-50%,calc(100vh + var(--rise,0px)));will-change:transform}
+.curve-logo{position:absolute;left:50%;top:5vw;transform:translateX(-50%);color:#fff;width:170px;height:88px;opacity:var(--logo-o,1)}
+.stats{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s}
+.stats.on{opacity:1}
+.orbit{position:absolute;left:50%;top:calc(-1 * var(--R) * .9);width:calc(var(--R) * 2);height:calc(var(--R) * 2);margin-left:calc(-1 * var(--R));border:1px solid rgba(255,255,255,.35);border-radius:50%;--R:min(48vw,560px)}
+.stat{position:absolute;left:50%;top:50%;width:var(--s,170px);height:var(--s,170px);margin:calc(var(--s,170px) / -2) 0 0 calc(var(--s,170px) / -2);border-radius:50%;background:#dddbd8;color:var(--ink);display:grid;place-content:center;text-align:center;transform:rotate(calc(var(--a) + var(--rot,0deg))) translate(var(--R)) rotate(calc(-1 * (var(--a) + var(--rot,0deg))))}
+.stat.alt{background:#8f95a5}
+.stat b{font:400 clamp(40px,4.4vw,64px)/.9 var(--serif);letter-spacing:-.03em}
+.stat small{font-size:9px;letter-spacing:.06em;text-transform:uppercase;margin-top:6px;max-width:90px;justify-self:center}
+
+/* ---------- testimonials ---------- */
+.testi{padding:100px var(--gut) 160px}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw}
+.testi-tabs{list-style:none;margin-top:36px;font-size:11px;line-height:1.9}
+.testi-tabs li{display:flex;align-items:center;gap:8px;opacity:.4;cursor:pointer;transition:opacity .3s}
+.testi-tabs li.on{opacity:1}
+.testi-tabs svg{width:10px;height:10px;transform:rotate(-90deg);visibility:hidden}
+.testi-tabs li.on svg{visibility:visible}
+.testi-tabs li.on circle.p{animation:ringfill 6s linear forwards}
+@keyframes ringfill{from{stroke-dashoffset:31.4}to{stroke-dashoffset:0}}
+.testi-right{border-left:1px solid var(--line);padding-left:var(--gut);min-height:260px}
+.testi-q{font-size:clamp(16px,1.45vw,22px);font-weight:600;line-height:1.2;max-width:620px}
+.testi-who{margin-top:24px;font-size:11px;opacity:.5}
+
+@media (max-width:900px){
+  .hero-note{display:none}
+  .hero-tag{max-width:none;right:var(--gut);bottom:64px}
+  .based{bottom:64px}
+  .goal-top{width:100%}
+  .goal-grid,.team-cta,.testi-grid{grid-template-columns:1fr}
+  .goal-l{flex-wrap:wrap}.portrait{width:46vw}
+  .goal .pill{margin-left:0}
+  .svc-bg{width:100%}
+  .svc-fade{background:linear-gradient(180deg,rgba(22,22,30,.2),var(--dark) 70%)}
+  .svc-titles{left:var(--gut);top:30%}
+  .svc-side{left:var(--gut);right:var(--gut);width:auto;top:auto;bottom:110px}
+  .svc-desc,.svc-side .pill{display:none}
+  .svc-list{bottom:24px}
+  .svc-list ul{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .tech-stage{grid-template-columns:1fr;align-content:center;gap:16px}
+  .tech-imgs{max-height:34vh;aspect-ratio:auto;height:34vh}
+  .tech-list-wrap{height:34vh}
+  .team-bios{grid-template-columns:1fr;gap:28px}
+  .ring{width:90vw}
+  .why-h .row{flex-wrap:wrap;justify-content:center;gap:0 .2em}
+  .why-h .row2{padding:0}
+  .curve-text .c1{right:var(--gut)}
+  .stat{--s:110px}
+  .testi-right{border:0;padding:0}
+}
+</style>
+</head>
+<body data-page="home">
+
+<main id="top">
+
+<!-- ================= HERO (video expands on scroll) ================= -->
+<section class="hero" id="hero">
+  <div class="sticky">
+    <h1 class="hero-title serif" id="heroT1"><span class="l1">Beautiful</span><span class="l2">Modern <em>Dentistry</em></span></h1>
+    <p class="based"><span>Based in:</span>Ventura<br>California</p>
+    <div class="hero-media" id="heroMedia">
+      <div class="media" data-label="Hero video (hero.mp4)">
+        <video data-src="hero.mp4" poster="hero-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="shade"></div>
+      <div class="hero-title serif" id="heroT2" aria-hidden="true"><span class="l1">Beautiful</span><span class="l2">Modern <em>Dentistry</em></span></div>
+      <div class="hero-marquee serif" id="heroMarquee">Your smile, in expert hands</div>
+      <p class="hero-tag serif">Crafting smiles that feel <em>as good as they look</em></p>
+      <p class="hero-note">Gentle care, modern technology and results that last.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION ================= -->
+<section class="goal" id="about">
+  <div class="goal-top" data-fade>
+    <p>With years of combined experience and ongoing advanced training, our team delivers care rooted in skill, precision and a genuine commitment to your comfort.</p>
+    <div class="avatars">
+      <span class="media" data-img="avatar-1.jpg"></span>
+      <span class="media" data-img="avatar-2.jpg"></span>
+      <span class="media" data-img="avatar-3.jpg"></span>
+      <span class="more">+8</span>
+    </div>
+  </div>
+  <div class="goal-grid">
+    <div class="goal-l" data-fade>
+      <h2 class="serif">Our mission is</h2>
+      <div class="media portrait" data-img="mission.jpg" data-label="Lead dentist portrait"></div>
+    </div>
+    <p class="serif words" data-words>to make every visit calm, comfortable and precise, combining modern technology, carefully planned treatment and genuine personal care so every patient leaves smiling with confidence.</p>
+  </div>
+  <a href="about.html" class="pill">About Us <span class="ico">+</span></a>
+</section>
+
+<!-- ================= SERVICES (sticky, scroll-driven) ================= -->
+<section class="svc" id="services">
+  <div class="sticky svc-stage">
+    <div id="svcBgs"></div>
+    <div class="svc-fade"></div>
+    <div class="svc-list"><span class="lbl">Services:</span><ul id="svcList"></ul></div>
+    <div class="svc-titles serif" id="svcTitles"></div>
+    <aside class="svc-side">
+      <span class="lbl">Our Solutions:</span>
+      <p class="svc-desc swap" id="svcDesc"></p>
+      <div class="svc-sub swap" id="svcSub">
+        <div class="media svc-thumb" id="svcThumb"></div>
+        <ul id="svcItems"></ul>
+      </div>
+      <a href="service.html" class="pill light" id="svcMore">Learn More <span class="ico">+</span></a>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+<section class="tech-intro" id="technology">
+  <div class="media tech-band" data-img="tech-banner.jpg" data-label="Technology banner photo"></div>
+  <h2 class="tech-h serif"><span class="t1">Technology-Led</span><span class="t2">Care for <em>Every</em> Smile</span></h2>
+</section>
+<section class="tech" id="techSticky">
+  <div class="sticky tech-stage">
+    <div class="tech-count serif"><span id="techNum">01</span><small id="techTotal">/ 06</small></div>
+    <div class="tech-imgs" id="techImgs"></div>
+    <div class="tech-list-wrap"><ul class="tech-list" id="techList"></ul></div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="team" id="team">
+  <div class="team-hero">
+    <h2 class="team-word serif" id="teamWord">Team of Experts</h2>
+    <div class="media team-photo" data-img="team.jpg" data-label="Team photo"></div>
+  </div>
+  <!-- DEMO DATA: names below are imaginary -->
+  <div class="team-bios">
+    <div data-fade><h4>Dr. Daniel Brooks</h4><div class="role">Founder &amp; Lead Dentist</div><p>Focused on cosmetic and implant dentistry for over 15 years, known for a gentle chairside manner and natural-looking, long-lasting results.</p></div>
+    <div data-fade><h4>Dr. Elena Ruiz</h4><div class="role">Partner &amp; Cosmetic Dentist</div><p>Creates bright, balanced smiles with veneers, whitening and bonding, combining an artist's eye with careful digital planning.</p></div>
+    <div data-fade><h4>Dr. Marcus Lee</h4><div class="role">Partner &amp; Restorative Dentist</div><p>Specialises in crowns, bridges and full-mouth restorations, helping patients of every age eat, speak and smile with confidence.</p></div>
+  </div>
+  <div class="team-cta">
+    <p class="small" data-fade>Skilled professionals<br><span>delivering expert care with<br>modern technology.</span></p>
+    <div data-fade>
+      <h3 class="serif">Our team is dedicated to giving you the very best care</h3>
+      <a href="about.html#doctors" class="pill light">Meet The Team <span class="ico">+</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why" id="why">
+  <div class="sticky why-stage">
+    <div class="ring r1" id="ring1"></div><div class="ring r2" id="ring2"></div>
+    <h2 class="why-h serif">
+      <span class="row row1" id="whyRow1"><span>We are <em>here</em></span><span class="mid">Why<br>choose us?</span><span>to <em>Enhance</em></span></span>
+      <span class="row row2" id="whyRow2">Your Smile</span>
+    </h2>
+  </div>
+</section>
+
+<!-- ================= CURVE REVEAL + STATS ================= -->
+<section class="curve" id="curve">
+  <div class="sticky curve-stage">
+    <div class="media lightph curve-img" data-img="smile.jpg" data-label="Full-width photo, light background"></div>
+    <h2 class="curve-text serif"><span class="c1" id="c1">Bringing</span><span class="c2" id="c2">Your <em>Perfect</em> Smile <em>to Life</em></span></h2>
+    <div class="curve-shape" id="curveShape"><svg class="curve-logo"><use href="#logo-mark"/></svg></div>
+    <div class="stats" id="stats">
+      <div class="orbit" id="orbit">
+        <div class="stat alt" style="--a:20deg;--s:130px"><b>1</b><small>Location</small></div>
+        <div class="stat" style="--a:55deg"><b>8K+</b><small>Happy patients</small></div>
+        <div class="stat" style="--a:90deg;--s:190px"><b>15+</b><small>Years of care</small></div>
+        <div class="stat" style="--a:125deg"><b>4.9</b><small>Google rating</small></div>
+        <div class="stat alt" style="--a:160deg;--s:130px"><b>24/7</b><small>Emergency line</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<!-- Demo reviews (imaginary): replace with real patient reviews before going live -->
+<section class="testi dark" id="reviews">
+  <div class="testi-grid">
+    <div><span class="lbl">Testimonials</span><ul class="testi-tabs" id="testiTabs"></ul></div>
+    <div class="testi-right"><blockquote class="testi-q swap" id="testiQ"></blockquote><div class="testi-who swap" id="testiWho"></div></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq dark" id="faq">
+  <h2 class="serif" data-fade>FAQ</h2>
+  <div><div data-faq="home"></div><a href="faq.html" class="pill light arrow">All Answers <span class="ico">›</span></a></div>
+</section>
+
+</main>
+
+<script src="site.js"></script>
+<script>
+/* ---------- homepage content ---------- */
+const TECH = [
+  {name:'Digital Smile Design', img:'tech-1.jpg'},
+  {name:'3D CBCT Imaging', video:'tech-2.mp4'},
+  {name:'Intraoral Scanning', video:'tech-3.mp4'},
+  {name:'Same-Day CAD/CAM Crowns', img:'tech-4.jpg'},
+  {name:'Laser Dentistry', img:'tech-5.jpg'},
+  {name:'Low-Dose Digital X-Rays', img:'tech-6.jpg'}
+];
+const REVIEWS = [ // DEMO DATA: imaginary reviews – replace with real patient reviews before launch
+  {tab:'Dental Implants', q:'“From the first consultation to the final result, everything was explained clearly and I never felt rushed. Dr. Brooks did an amazing job and my implant looks and feels completely natural.”', who:'Jessica M. · Ventura'},
+  {tab:'Crowns & Bridges', q:'“The team made me feel relaxed from the moment I walked in. Dr. Lee finished my new crown quickly and it matches my other teeth perfectly.”', who:'Robert K. · Oxnard'},
+  {tab:'Teeth Whitening', q:'“Friendly, professional and spotless clinic. The whitening results were better than I expected and there was no sensitivity at all. Thank you, Dr. Ruiz!”', who:'Amanda T. · Ventura'},
+  {tab:'Check-ups & Cleanings', q:'“I used to dread the dentist. Now I actually look forward to my visits. Everyone is kind, on time and genuinely cares about you.”', who:'Michael R. · Camarillo'}
+];
+
+/* ---------- build markup ---------- */
+$('#svcBgs').innerHTML=SERVICES.map((s,i)=>mediaDiv(s.img,'svc-bg'+(i?'':' on'),'Service photo: '+s.name)).join('');
+$('#svcList').innerHTML=SERVICES.map((s,i)=>`<li data-i="${i}" class="${i?'':'on'}">${s.name}</li>`).join('');
+$('#svcTitles').innerHTML=SERVICES.map((s,i)=>`<h2 class="${i?'':'on'}">${s.t1} <em>${s.t2}</em></h2>`).join('');
+$('#techImgs').innerHTML=TECH.map((t,i)=>t.video
+  ? `<div class="media ${i?'':'on'}" data-label="Technology video: ${t.name}"><video data-src="${t.video}" autoplay muted loop playsinline preload="metadata"></video></div>`
+  : mediaDiv(t.img,i?'':'on','Technology photo: '+t.name)).join('');
+$('#techList').innerHTML=TECH.map((t,i)=>`<li class="${i?'':'on'}"><div><span class="lbl">Technology</span><h3 class="serif">${t.name}</h3></div><a class="ulink" href="contact.html">Learn More</a></li>`).join('');
+$('#techTotal').textContent='/ '+String(TECH.length).padStart(2,'0');
+$('#testiTabs').innerHTML=REVIEWS.map((r,i)=>`<li data-i="${i}"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/><circle class="p" cx="6" cy="6" r="5" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="31.4" stroke-dashoffset="31.4"/></svg>${r.tab}</li>`).join('');
+
+/* ---------- services state ---------- */
+let svcIdx=-1;
+function setService(i){
+  if(i===svcIdx)return; const first=svcIdx<0; svcIdx=i;
+  const s=SERVICES[i];
+  $$('#svcBgs .svc-bg').forEach((b,k)=>b.classList.toggle('on',k===i));
+  $$('#svcList li').forEach((l,k)=>l.classList.toggle('on',k===i));
+  $$('#svcTitles h2').forEach((h,k)=>h.classList.toggle('on',k===i));
+  $('#svcMore').href=svcUrl(s);
+  const desc=$('#svcDesc'),sub=$('#svcSub');
+  desc.classList.add('out');sub.classList.add('out');
+  setTimeout(()=>{
+    desc.textContent=s.desc;
+    $('#svcItems').innerHTML=s.items.map(t=>`<li>${t}<span>↗</span></li>`).join('');
+    $('#svcThumb').style.backgroundImage=`url("${s.img}")`;
+    desc.classList.remove('out');sub.classList.remove('out');
+  },first?0:250);
+}
+setService(0);
+$$('#svcList li').forEach(li=>li.addEventListener('click',()=>{
+  const sec=$('#services'),i=+li.dataset.i;
+  scrollTo({top:sec.offsetTop+(sec.offsetHeight-innerHeight)*((i+.5)/SERVICES.length),behavior:'smooth'});
+}));
+
+/* ---------- tech state ---------- */
+let techIdx=-1;
+function setTech(i){
+  if(i===techIdx)return; techIdx=i;
+  $$('#techImgs .media').forEach((m,k)=>m.classList.toggle('on',k===i));
+  const lis=$$('#techList li');
+  lis.forEach((l,k)=>l.classList.toggle('on',k===i));
+  $('#techList').style.transform=`translateY(${-(lis[i].offsetTop+lis[i].offsetHeight/2)}px)`;
+  $('#techNum').textContent=String(i+1).padStart(2,'0');
+}
+addEventListener('resize',()=>{techIdx=-1;});
+
+/* ---------- testimonials ---------- */
+let tTimer;
+function setReview(i){
+  const r=REVIEWS[i],q=$('#testiQ'),w=$('#testiWho');
+  $$('#testiTabs li').forEach((l,k)=>{l.classList.remove('on');if(k===i){void l.offsetWidth;l.classList.add('on');}});
+  q.classList.add('out');w.classList.add('out');
+  setTimeout(()=>{q.textContent=r.q;w.textContent=r.who;q.classList.remove('out');w.classList.remove('out');},250);
+  clearTimeout(tTimer);tTimer=setTimeout(()=>setReview((i+1)%REVIEWS.length),6000);
+}
+$$('#testiTabs li').forEach(li=>li.addEventListener('click',()=>setReview(+li.dataset.i)));
+setReview(0);
+
+/* ---------- scroll animations ---------- */
+const hero=$('#hero'),heroMedia=$('#heroMedia'),t1=$('#heroT1'),t2=$('#heroT2'),mq=$('#heroMarquee');
+let prevY=scrollY;
+onScroll((y,vh)=>{
+  /* hero: video panel expands from right half to full screen, then a line of text slides across */
+  const hp=progressOf(hero);
+  const open=ease(range(hp,0,.38)), clip=50*(1-open);
+  heroMedia.style.setProperty('--clip',clip+'%');
+  const tOut=range(hp,.38,.52);
+  t1.style.transform=t2.style.transform=`translateY(calc(-58% - ${open*4+tOut*8}vh)) scale(${1-open*.04})`;
+  t1.style.opacity=t2.style.opacity=1-tOut;
+  const mp=range(hp,.45,1);
+  mq.style.transform=`translate3d(${innerWidth-mp*(innerWidth+mq.offsetWidth)}px,-50%,0)`;
+
+  /* header */
+  const inHero=y<hero.offsetTop+hero.offsetHeight-vh;
+  if(!$('#menu').classList.contains('open')){
+    hdr.classList.toggle('split',inHero&&clip>1);
+    hdr.classList.toggle('on-dark',inHero&&clip<=1);
+    hdr.classList.toggle('solid',!inHero);
+    hdr.classList.toggle('hide',!inHero&&y>prevY+2);
+    if(y<prevY-2)hdr.classList.remove('hide');
+  }
+  prevY=y;
+
+  setService(Math.min(SERVICES.length-1,Math.floor(progressOf($('#services'))*SERVICES.length)));
+  setTech(Math.min(TECH.length-1,Math.floor(progressOf($('#techSticky'))*TECH.length)));
+
+  const tr=$('#team').getBoundingClientRect();
+  if(tr.top<vh&&tr.bottom>0)$('#teamWord').style.transform=`translateY(${tr.top*-.25}px)`;
+
+  const whp=progressOf($('#why')),k=1-ease(range(whp,0,.6));
+  $('#ring1').style.transform=`translate(${-k*30}vw,-50%) rotate(${whp*90}deg)`;
+  $('#ring2').style.transform=`translate(${k*30}vw,-50%) rotate(${-whp*90}deg)`;
+  $('#whyRow1').style.transform=`translateX(${k*-14}vw)`;
+  $('#whyRow2').style.transform=`translateX(${k*18}vw)`;
+  $('#whyRow1').style.opacity=$('#whyRow2').style.opacity=.25+.75*(1-k);
+
+  const cp=progressOf($('#curve')),tin=1-ease(range(cp,0,.3));
+  $('#c1').style.transform=`translateX(${tin*40}vw)`;
+  $('#c2').style.transform=`translateX(${-tin*40}vw)`;
+  const rise=ease(range(cp,.28,.62));
+  $('#curveShape').style.setProperty('--rise',(-rise*(vh+28))+'px');
+  $('#curveShape').style.setProperty('--logo-o',1-range(cp,.55,.62));
+  $('#stats').classList.toggle('on',cp>.6);
+  $('#orbit').style.setProperty('--rot',(40-range(cp,.6,1)*60)+'deg');
+});
+</script>
+</body>
+</html>

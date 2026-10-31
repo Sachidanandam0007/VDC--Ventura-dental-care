@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · Ventura Dental Care</title>
+<meta name="description" content="Answers to common questions about visits, treatments, insurance and aftercare at Ventura Dental Care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.faq-page{padding-top:140px;align-items:start}
+.faq-page .left{position:sticky;top:120px}
+.faq-page .left p{font-size:13px;line-height:1.5;max-width:300px;opacity:.7;margin-top:30px}
+.faq-page .left .pill{margin-top:30px}
+.faq-cat{font:400 clamp(30px,2.6vw,44px)/1 var(--serif);margin:56px 0 6px}
+.faq-cat:first-child{margin-top:0}
+@media (max-width:900px){.faq-page .left{position:static}}
+</style>
+</head>
+<body data-page="faq" data-header="dark" class="dark-page">
+
+<main>
+<section class="faq faq-page">
+  <div class="left" data-fade>
+    <h1 class="serif" style="font-size:clamp(120px,15vw,260px)">FAQ</h1>
+    <p>Answers to the questions we hear most. Can't find what you're looking for? Call us at <a href="tel:+18055550142" id="faqTel" style="text-decoration:underline">(805) 555-0142</a> or book a call.</p>
+    <button class="pill light" data-book>Book A Call <span class="ico">+</span></button>
+  </div>
+  <div data-faq="all"></div>
+</section>
+</main>
+
+<script src="site.js"></script>
+<script>$('#faqTel').textContent=SITE.phone;$('#faqTel').href='tel:'+SITE.tel;</script>
+</body>
+</html>
